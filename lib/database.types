@@ -1,0 +1,183 @@
+export type Json = string | number | boolean | null | { [key: string]: Json | undefined } | Json[]
+
+export interface Database {
+  public: {
+    Tables: {
+      profiles: {
+        Row: {
+          id: string
+          email: string
+          full_name: string | null
+          created_at: string
+          updated_at: string
+        }
+        Insert: {
+          id: string
+          email: string
+          full_name?: string | null
+          created_at?: string
+          updated_at?: string
+        }
+        Update: {
+          id?: string
+          email?: string
+          full_name?: string | null
+          created_at?: string
+          updated_at?: string
+        }
+      }
+      debts: {
+        Row: {
+          id: string
+          user_id: string
+          name: string
+          last_four: string
+          balance: number
+          apr: number
+          minimum_payment: number
+          payment_day: number
+          created_at: string
+          updated_at: string
+        }
+        Insert: {
+          id?: string
+          user_id: string
+          name: string
+          last_four: string
+          balance: number
+          apr: number
+          minimum_payment: number
+          payment_day: number
+          created_at?: string
+          updated_at?: string
+        }
+        Update: {
+          id?: string
+          user_id?: string
+          name?: string
+          last_four?: string
+          balance?: number
+          apr?: number
+          minimum_payment?: number
+          payment_day?: number
+          created_at?: string
+          updated_at?: string
+        }
+      }
+      credit_offers: {
+        Row: {
+          id: string
+          user_id: string
+          name: string
+          apr: number
+          intro_apr: number | null
+          intro_period_months: number | null
+          transfer_fee_percent: number | null
+          credit_limit: number
+          rewards_program: string | null
+          rewards_rate: number | null
+          rewards_category: string | null
+          annual_fee: number | null
+          created_at: string
+          updated_at: string
+        }
+        Insert: {
+          id?: string
+          user_id: string
+          name: string
+          apr: number
+          intro_apr?: number | null
+          intro_period_months?: number | null
+          transfer_fee_percent?: number | null
+          credit_limit: number
+          rewards_program?: string | null
+          rewards_rate?: number | null
+          rewards_category?: string | null
+          annual_fee?: number | null
+          created_at?: string
+          updated_at?: string
+        }
+        Update: {
+          id?: string
+          user_id?: string
+          name?: string
+          apr?: number
+          intro_apr?: number | null
+          intro_period_months?: number | null
+          transfer_fee_percent?: number | null
+          credit_limit?: number
+          rewards_program?: string | null
+          rewards_rate?: number | null
+          rewards_category?: string | null
+          annual_fee?: number | null
+          created_at?: string
+          updated_at?: string
+        }
+      }
+      repayment_plans: {
+        Row: {
+          id: string
+          user_id: string
+          name: string
+          total_savings: number
+          months_to_payoff: number
+          created_at: string
+          updated_at: string
+        }
+        Insert: {
+          id?: string
+          user_id: string
+          name: string
+          total_savings: number
+          months_to_payoff: number
+          created_at?: string
+          updated_at?: string
+        }
+        Update: {
+          id?: string
+          user_id?: string
+          name?: string
+          total_savings?: number
+          months_to_payoff?: number
+          created_at?: string
+          updated_at?: string
+        }
+      }
+      repayment_steps: {
+        Row: {
+          id: string
+          plan_id: string
+          step_number: number
+          action_type: string
+          from_debt_id: string | null
+          to_offer_id: string | null
+          amount: number
+          savings: number
+          created_at: string
+        }
+        Insert: {
+          id?: string
+          plan_id: string
+          step_number: number
+          action_type: string
+          from_debt_id?: string | null
+          to_offer_id?: string | null
+          amount: number
+          savings: number
+          created_at?: string
+        }
+        Update: {
+          id?: string
+          plan_id?: string
+          step_number?: number
+          action_type?: string
+          from_debt_id?: string | null
+          to_offer_id?: string | null
+          amount?: number
+          savings?: number
+          created_at?: string
+        }
+      }
+    }
+  }
+}
